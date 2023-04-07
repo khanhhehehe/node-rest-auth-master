@@ -1,32 +1,63 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Thêm sách mới
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm sách</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="book" method="post">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Mã sách</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            name="isbn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Tiêu đề</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Tác giả</label>
+                        <input type="text" class="form-control" id="exampleInputPassword2" name="author">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Nhà xuất bản</label>
+                        <input type="text" class="form-control" id="exampleInputPassword2" name="publisher">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="container">
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">STT</th>
+                <th scope="col">Mã sách</th>
+                <th scope="col">Tiêu đề</th>
+                <th scope="col">Tác giả</th>
+                <th scope="col">Nhà xuất bản</th>
             </tr>
         </thead>
         <tbody>
+            {{#each databooks}}
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{{@index}}</th>
+                <td>{{isbn}}</td>
+                <td>{{title}}</td>
+                <td>{{author}}</td>
+                <td>{{publisher}}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>
